@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperHelper", "DeveloperHelper\DeveloperHelper.csproj", "{B4D8B790-752D-4DA1-B581-9C7C0618B80D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeveloperHelper", "DeveloperHelper\DeveloperHelper.csproj", "{B4D8B790-752D-4DA1-B581-9C7C0618B80D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AB021C70-6503-417C-8868-0792E2073CB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectionModule", "src\Modules\ReflectionModule\ReflectionModule.csproj", "{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{B4D8B790-752D-4DA1-B581-9C7C0618B80D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4D8B790-752D-4DA1-B581-9C7C0618B80D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4D8B790-752D-4DA1-B581-9C7C0618B80D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B} = {AB021C70-6503-417C-8868-0792E2073CB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A26495A0-3975-4646-9307-3B0D3CCA004A}

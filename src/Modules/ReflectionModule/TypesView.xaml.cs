@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DeveloperHelper
+namespace Reflection
 {
     public partial class TypesView : UserControl
     {
@@ -8,8 +8,7 @@ namespace DeveloperHelper
         {
             InitializeComponent();
 
-            var vm = new TypesViewModel();
-            DataContext = vm;
+            DataContext = new TypesViewModel();
         }
     }
 }

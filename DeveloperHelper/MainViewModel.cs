@@ -8,9 +8,7 @@ namespace DeveloperHelper
     {
         public MainViewModel()
         {
-            TypesViewModel = new TypesViewModel();
-        }
 
-        public TypesViewModel TypesViewModel { get; set; }
+        }
     }
 }

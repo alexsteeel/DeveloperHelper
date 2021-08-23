@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Reflection;
 
-namespace DeveloperHelper
+namespace Reflection
 {
     public class TypeLoader
     {
         public Type[] Load(string assemblyPath)
         {
             Assembly asm = Assembly.LoadFrom(assemblyPath);
-            Type[] types = asm.GetTypes();
-            return types;
+            return asm.GetTypes();
         }
     }
 }
