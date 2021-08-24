@@ -1,8 +1,8 @@
-﻿using System.Windows;
+﻿using MahApps.Metro.Controls;
 
 namespace DeveloperHelper
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
