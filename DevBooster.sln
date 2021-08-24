@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AB02
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectionModule", "src\Modules\ReflectionModule\ReflectionModule.csproj", "{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeveloperHelper", "DeveloperHelper\DeveloperHelper.csproj", "{09BBF4AF-DAC9-44E1-B3EA-FBB490171F0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBooster", "src\DevBooster\DevBooster.csproj", "{BDE1EB8F-EDE1-4A99-86A0-301681B392C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA5316AB-912F-4FDD-9210-AA4FC6F9F33B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09BBF4AF-DAC9-44E1-B3EA-FBB490171F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09BBF4AF-DAC9-44E1-B3EA-FBB490171F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09BBF4AF-DAC9-44E1-B3EA-FBB490171F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09BBF4AF-DAC9-44E1-B3EA-FBB490171F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE1EB8F-EDE1-4A99-86A0-301681B392C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE1EB8F-EDE1-4A99-86A0-301681B392C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE1EB8F-EDE1-4A99-86A0-301681B392C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE1EB8F-EDE1-4A99-86A0-301681B392C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

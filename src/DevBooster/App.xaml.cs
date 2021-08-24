@@ -3,7 +3,7 @@ using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
 
-namespace DeveloperHelper
+namespace DevBooster
 {
     public partial class App : PrismApplication
     {

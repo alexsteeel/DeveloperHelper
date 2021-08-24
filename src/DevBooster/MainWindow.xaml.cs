@@ -1,6 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 
-namespace DeveloperHelper
+namespace DevBooster
 {
     public partial class MainWindow : MetroWindow
     {
