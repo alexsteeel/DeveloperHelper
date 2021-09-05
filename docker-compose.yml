@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+
+    gitlab:
+        container_name: gitlab
+        image: 'gitlab/gitlab-ce:latest'
+        restart: always
+        hostname: 'gitlab.example.com'
+        environment:
+            GITLAB_OMNIBUS_CONFIG: |
+                external_url 'https://gitlab.example.com'
+        ports:
+        - '80:80'
+        - '443:443'
+        - '22:22'
+        volumes:
+        - '$GITLAB_HOME/config:/etc/gitlab'
+        - '$GITLAB_HOME/logs:/var/log/gitlab'
+        - '$GITLAB_HOME/data:/var/opt/gitlab'
+
+    gitlab-runner:
+       container_name: gitlab-runner
+       image: gitlab/gitlab-runner:latest
+       restart: always
+       volumes:
+         - '/opt/gitlab-runner/data:/home/gitlab_ci_multi_runner/data'
+         - '/opt/gitlab-runner/config:/etc/gitlab-runner'
+         - '/var/run/docker.sock:/var/run/docker.sock:rw'
+       environment:
+         - CI_SERVER_URL=https://gitlab.example.com/ci
+
+    redmine:
+        image: redmine
+        restart: always
+        ports:
+          - 8080:3000
+        environment:
+          REDMINE_DB_MYSQL: db
+          REDMINE_DB_PASSWORD: example
+          REDMINE_SECRET_KEY_BASE: supersecretkey
+
+    db:
+        image: mysql:5.7
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: example
+          MYSQL_DATABASE: redmine
