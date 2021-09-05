@@ -2,14 +2,14 @@
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace CreateTask
+namespace ProjectManagement
 {
-    public class CreateTaskModule : IModule
+    public class ProjectManagementModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            regionManager.RegisterViewWithRegion("ContentRegion", typeof(CreateTaskView));
+            regionManager.RegisterViewWithRegion("CreateProjectViewRegion", typeof(CreateProjectView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

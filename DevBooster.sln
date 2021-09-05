@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31612.314
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AB021C70-6503-417C-8868-0792E2073CB1}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7A70DB67-F76
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6F0698F1-9ECA-4124-A4D0-0D5A6A48D416}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateTaskModule", "src\Modules\CreateTaskModule\CreateTaskModule.csproj", "{73B0F2D4-DC6D-42D1-8F29-D7CFD4E41C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectManagementModule", "src\Modules\CreateTaskModule\ProjectManagementModule.csproj", "{73B0F2D4-DC6D-42D1-8F29-D7CFD4E41C11}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1D07ED8B-163E-42A1-A4E2-6FEF5A74751E}"
 EndProject
