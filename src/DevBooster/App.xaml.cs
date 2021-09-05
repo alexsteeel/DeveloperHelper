@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using Microsoft.Extensions.Configuration;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
@@ -14,7 +15,10 @@ namespace DevBooster
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterInstance<IConfiguration>(new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddUserSecrets<App>()
+                .Build());
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

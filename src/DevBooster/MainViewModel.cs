@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MahApps.Metro.Controls.Dialogs;
 
 namespace DevBooster
 {
     public class MainViewModel
     {
-        public MainViewModel()
+        private IDialogCoordinator _dialogCoordinator;
+        public MainViewModel(IDialogCoordinator instance)
         {
-
+            _dialogCoordinator = instance;
         }
     }
 }

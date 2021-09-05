@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace DevBooster
 {
@@ -8,7 +9,7 @@ namespace DevBooster
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel(DialogCoordinator.Instance);
         }
     }
 }
