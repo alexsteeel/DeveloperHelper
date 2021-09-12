@@ -1,4 +1,4 @@
-﻿namespace ProjectManagementModule.CreateProject
+﻿namespace ProjectManagementModule
 {
     public class DotnetTemplate
     {

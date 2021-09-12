@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace ProjectManagementModule.CreateProject
+namespace ProjectManagementModule
 {
-    public class DotnetClient
+    public class DotnetClient : IDotnetClient
     {
-        private readonly ILogger<DotnetClient> _logger;
-        public DotnetClient(ILogger<DotnetClient> logger)
+        private readonly ILogger _logger;
+        public DotnetClient(ILogger logger)
         {
             _logger = logger;
         }
@@ -71,23 +71,34 @@ namespace ProjectManagementModule.CreateProject
         /// <returns><c>true</c> if success, else <c>false</c>.</returns>
         public bool CreateProject(string templateShortName, string path)
         {
-            var process = CreateDotnetProcess("new", templateShortName, $"--output {path}");
-            process.Start();
+            _logger.LogInformation("Creating new project.");
 
-            while (!process.StandardError.EndOfStream)
+            try
             {
-                _logger.LogError(process.StandardError.ReadLine());
+                var process = CreateDotnetProcess("new", templateShortName, $"--output {path}");
+                process.Start();
+
+                while (!process.StandardError.EndOfStream)
+                {
+                    _logger.LogError(process.StandardError.ReadLine());
+                }
+
+                if (process.HasExited)
+                {
+                    return false;
+                }
+
+                while (!process.StandardOutput.EndOfStream)
+                {
+                    _logger.LogInformation(process.StandardOutput.ReadLine());
+                }
             }
-
-            if (process.HasExited)
+            catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
 
-            while (!process.StandardOutput.EndOfStream)
-            {
-                _logger.LogInformation(process.StandardOutput.ReadLine());
-            }
             return true;
         }
 

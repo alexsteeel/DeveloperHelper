@@ -19,6 +19,9 @@
         <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\BaseModule\BaseModule.csproj" />
+    </ItemGroup>
+    <ItemGroup>
         <Compile Update="CreateProject\CreateProjectView.xaml.cs">
             <SubType>Code</SubType>
         </Compile>
