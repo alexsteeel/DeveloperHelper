@@ -5,13 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             xmlns:projectmanagementmodule="clr-namespace:ProjectManagementModule"
+             xmlns:local="clr-namespace:ProjectManagementModule"
              Dialog:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
+            <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            
             <Thickness x:Key="ControlMargin">3</Thickness>
 
             <ContextMenu x:Key="DefaultContextMenu">
@@ -48,60 +50,68 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBox Style="{StaticResource MahTextBox}"
-                 Grid.Row="0"
-                 Text="{Binding Project.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+        <Grid IsEnabled="{Binding IsLoaderActive, Converter={StaticResource InverseBooleanConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <mah:ProgressRing Visibility="{Binding IsLoaderActive, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <TextBox Style="{StaticResource MahTextBox}"
+                     Grid.Row="0"
+                     Text="{Binding Project.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
                         ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
-                 mah:TextBoxHelper.Watermark="Project name">
-        </TextBox>
+                     mah:TextBoxHelper.Watermark="Project name">
+            </TextBox>
 
-        <TextBox Style="{StaticResource MahTextBox}"
-                 Grid.Row="1"
-                 Text="{Binding Project.Description, UpdateSourceTrigger=PropertyChanged,
+            <TextBox Style="{StaticResource MahTextBox}"
+                     Grid.Row="1"
+                     Text="{Binding Project.Description, UpdateSourceTrigger=PropertyChanged,
                         ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
-                 mah:TextBoxHelper.Watermark="Project description">
-        </TextBox>
+                     mah:TextBoxHelper.Watermark="Project description">
+            </TextBox>
 
-        <TextBox Style="{StaticResource MahTextBox}"
-                 Grid.Row="2"
-                 Text="{Binding Project.SavePath, UpdateSourceTrigger=PropertyChanged,
+            <TextBox Style="{StaticResource MahTextBox}"
+                     Grid.Row="2"
+                     Text="{Binding Project.SavePath, UpdateSourceTrigger=PropertyChanged,
                         ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
-                 mah:TextBoxHelper.Watermark="Path to project"
-                 SpellCheck.IsEnabled="False">
-        </TextBox>
+                     mah:TextBoxHelper.Watermark="Path to project"
+                     SpellCheck.IsEnabled="False">
+            </TextBox>
 
-        <ComboBox Grid.Row="3"
-                  Margin="{StaticResource ControlMargin}"
-                  mah:TextBoxHelper.UseFloatingWatermark="True"
-                  mah:TextBoxHelper.Watermark="Dotnet template"
-                  DisplayMemberPath="Name"
-                  IsEditable="True"
-                  ItemsSource="{Binding DotnetTemplates}"
-                  SelectedItem="{Binding SelectedDotnetTemplate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                  MaxDropDownHeight="125"
-                  Style="{DynamicResource MahApps.Styles.ComboBox.Virtualized}"
-                  mah:TextBoxHelper.ClearTextButton="False" />
+            <ComboBox Grid.Row="3"
+                      Margin="{StaticResource ControlMargin}"
+                      mah:TextBoxHelper.UseFloatingWatermark="True"
+                      mah:TextBoxHelper.Watermark="Dotnet template"
+                      DisplayMemberPath="Name"
+                      IsEditable="True"
+                      ItemsSource="{Binding DotnetTemplates}"
+                      SelectedItem="{Binding SelectedDotnetTemplate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      MaxDropDownHeight="125"
+                      Style="{DynamicResource MahApps.Styles.ComboBox.Virtualized}"
+                      mah:TextBoxHelper.ClearTextButton="False" />
 
-        <Button Grid.Row="4"
-                Margin="5"
-                Width="100"
-                Height="25"
-                HorizontalAlignment="Right"
-                Content="Create project"
-                Command="{Binding CreateProjectCommand}" />
+            <Button Grid.Row="4"
+                    Margin="5"
+                    Width="100"
+                    Height="25"
+                    HorizontalAlignment="Right"
+                    Content="Create project"
+                    Command="{Binding CreateProjectCommand}" />
+        </Grid>
 
         <TextBox Style="{StaticResource MahTextBox}"
                  Grid.Row="5"
                  Text="{Binding Log}"
                  mah:TextBoxHelper.ClearTextButton="False"
-                 IsEditable="False"/>
+                 IsReadOnly="True" />
 
     </Grid>
 </UserControl>

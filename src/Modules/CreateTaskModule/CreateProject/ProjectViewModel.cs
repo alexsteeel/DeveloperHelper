@@ -22,7 +22,7 @@ namespace ProjectManagementModule
             get { return _name; }
             set
             {
-                CheckName(value);
+                CheckProperty(value, nameof(Name), NameError, x => string.IsNullOrWhiteSpace(x));
                 SetProperty(ref _name, value);
             }
         }
@@ -33,7 +33,7 @@ namespace ProjectManagementModule
             get { return _description; }
             set
             {
-                CheckDescription(value);
+                CheckProperty(value, nameof(Description), DescriptionError, x => string.IsNullOrWhiteSpace(x));
                 SetProperty(ref _description, value);
             }
         }
@@ -44,7 +44,7 @@ namespace ProjectManagementModule
             get { return _savePath; }
             set
             {
-                CheckSavePath(value);
+                CheckProperty(value, nameof(SavePath), SavePathError, x => string.IsNullOrWhiteSpace(x) || !Directory.Exists(value));
                 SetProperty(ref _savePath, value);
             }
         }
@@ -68,58 +68,6 @@ namespace ProjectManagementModule
         {
             get { return _issueTracking; }
             set { SetProperty(ref _issueTracking, value); }
-        }
-
-        public bool CheckName(string value)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                AddError(nameof(Name), NameError, false);
-                isValid = false;
-            }
-            else
-            {
-                RemoveError(nameof(Name), NameError);
-            }
-
-            return isValid;
-        }
-
-        public bool CheckDescription(string value)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                AddError(nameof(Description), DescriptionError, false);
-                isValid = false;
-            }
-            else
-            {
-                RemoveError(nameof(Description), DescriptionError);
-            }
-
-            return isValid;
-        }
-
-        public bool CheckSavePath(string value)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(value)
-                || !Directory.Exists(value))
-            {
-                AddError(nameof(SavePath), SavePathError, false);
-                isValid = false;
-            }
-            else
-            {
-                RemoveError(nameof(SavePath), SavePathError);
-            }
-
-            return isValid;
         }
     }
 }

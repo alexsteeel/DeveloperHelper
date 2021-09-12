@@ -72,5 +72,22 @@ namespace ProjectManagementModule
         {
             get { return errors.Count > 0; }
         }
+
+        public bool CheckProperty<T>(T value, string propertyName, string error, Func<T, bool> func)
+        {
+            bool isValid = true;
+
+            if (func(value))
+            {
+                AddError(propertyName, error, false);
+                isValid = false;
+            }
+            else
+            {
+                RemoveError(propertyName, error);
+            }
+
+            return isValid;
+        }
     }
 }
